@@ -1,0 +1,58 @@
+no sql 
+mongoDB
+redis
+.myd
+.myi
+
+
+database desigining
+
+	=>database desigining is a process of crating a 
+detailed data model of a databse.
+	=>it involves structuring data logically and efficently
+
+keyconcepts in database desigining
+	
+	=>requirement analyis
+	=>conceptual design
+	=>logical design
+
+normal forms
+	=>1nf,2nf,3nf,4nf,etc....,
+
+physical desgin
+
+main purpose
+reduce inconsistency 
+increases security and scalability
+efficent way to store a data
+
+normalization type
+
+is a process of organsing a data in database
+database will run fast
+
+normal form
+
+1]1nf=>each column will contain atomic values
+2]no repeating loops
+
+1]2nf=> no partial dependency
+2]no transitive dependency
+
+sql clauses
+ where 
+	=>select * from tablename where columnname 
+ex:select * from studentdetails where rollno=222;
+ 
+select name from studentdetails where rollno=222;
+
+
+
+
+
+
+
+
+
+

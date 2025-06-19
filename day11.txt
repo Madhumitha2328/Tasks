@@ -1,0 +1,42 @@
+JDBC:(java database connectivity)
+	JDBC is an API in java that allows you to connect java to database 
+inside java you can execute a SQL queries using JDBC driver.
+
+ODBC
+
+architecture of jdbc
+	application layer 
+	jdbc api
+	jdbc driver
+	database
+
+setting jdbc environment
+	mvn-maven
+	
+jdbc steps to connect with database
+1.load the driver class
+2.create the connection
+3.create statement
+4.writing a query and execution
+5.close the connection
+
+important jdbc class and interfaces
+
+driver manager=>class 
+connection => class
+statement 
+prepared statement
+result set
+
+function:
+execute query()
+execute update()
+execute()
+true or false() => return boolean function
+
+
+
+
+
+
+ 

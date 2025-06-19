@@ -1,0 +1,182 @@
+oops=>object oriented programming system
+final=>cannot be overwrite
+data is an set of character
+1.oject
+2.class
+          pillars of oops (AEIP)
+3.abstraction
+	before the class keywords
+	interfaces=>instance of class
+4.encapsulation
+   	is an concept to wrap the properties and functionality in a single units
+5.inheritance
+	single
+	multiple
+	hybrid
+	muli level
+	
+6.polymorphism
+	polymorphism means many morph means shapes
+	method overloadind=>compile time 
+	method overriding=>runtime
+
+1.single
+package oops;
+class Parent{
+	String haircolour = "Brown";
+	public void behaviour() {
+		System.out.println("Attitude");
+	}
+}
+class child extends Parent{
+	String haircolour = "Black";
+	public void behaviour() {
+		System.out.println(" Less Attitude");
+	
+}
+public class InheritanceClass {
+	public static void main(String[] args) {
+		Parent obj = new child();
+		obj.behaviour();
+
+	}
+}
+	
+
+}
+i]
+package oops.stageofinherit;
+class Bike{
+	String name;
+	public void model() {
+		System.out.println("HIMALAYAN 411");
+	}
+}
+class Car extends Bike{
+	String name;
+	public void model() {
+		System.out.println("BMW");
+	}
+}
+
+public class SingleClass {
+	 public static void main(String[] args) {
+		 Bike myBike = new Car();
+		 myBike.name = "HIMALAYAN ";
+		 myBike.model();
+		 
+		 
+	 }
+
+}
+2.package oops.stageofinherit;
+class Animal {
+    void eat() {
+        System.out.println("Animal is eating");
+    }
+}
+
+class Cat extends Animal {
+    void bark() {
+        System.out.println("Cat is barking");
+    }
+}
+
+class Meenu extends Cat {
+    void play() {
+        System.out.println("Meenu is playing");
+    }
+}
+
+public class MultipleClass {
+	public static void main(String[] args) {
+		Meenu myMeenu = new Meenu();
+        myMeenu.eat(); 
+        myMeenu.bark(); 
+        myMeenu.play(); 
+    }
+}
+
+
+3.oops
+package oops;
+
+import java.util.Date;
+import java.util.Scanner;
+
+public class OOPSClass {
+
+	public static void main(String[] args) {
+		EncapsulationClass user = new EncapsulationClass();
+		Scanner sc = new Scanner(System.in);
+		System.out.println("enter the email:");
+		user.setEmail(sc.next().toLowerCase());
+		System.out.println(user.getEmail());
+		System.out.println("enter the username:");
+		user.setUsername(sc.next().toLowerCase());
+		System.out.println(user.getUsername());
+		System.out.println("enter the mobile:");
+		user.setMobile(sc.next().charAt(0));
+		System.out.println(user.getMobile());
+		
+		System.out.println("enter the age:");
+		Date dob = new Date("2006/08/23");
+		user.setAge(dob);
+		System.out.println(user.getAge());
+		System.out.println("enter the gender:");
+		user.setGender(sc.next().charAt(0));
+		System.out.println(user.getGender());
+		
+	}
+}
+
+4.encapsulation
+package oops;
+
+import java.util.Date;
+
+public class EncapsulationClass {
+String email;
+String username;
+long mobile;
+Date age;
+char gender;
+boolean graduate;
+	public void setEmail(String email) {
+	this.email = email;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+		}
+	public String getUsername() {
+		return username;
+	}
+	public void setMobile(long mobile) {
+		this.mobile = mobile;
+		}
+	public long getMobile() {
+		 return mobile;
+	}
+	public void setAge(Date age) {
+		this.age = age;
+		}
+	public Date getAge() {
+		 return age;
+	}
+	public void setGender(char gender) {
+		this.gender = gender;
+		}
+	public char getGender() {
+		 return gender;
+	}
+	public void setGraduate( boolean graduate) {
+		this.graduate = graduate;
+		}
+	public boolean getGraduate() {
+		 return graduate;
+	}
+}
+

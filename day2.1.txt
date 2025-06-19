@@ -1,0 +1,61 @@
+class Main {
+    public static void main(String[] args) {
+        String str = "I LOVE CAT";
+        String str1[] = str.split(" ");
+        System.out.println(str1[2]);
+    }
+}
+
+stringbufferd is a thread safety
+
+task1:input an array of numberss and display the reverse
+task2:count vowels and consonants in a string
+task3:accept sentence ,split into words
+
+task1:
+
+import java.util.Scanner;
+
+public class ReverseArray {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the number of elements: ");
+        int n = scanner.nextInt();
+        int[] num = new int[n];
+        System.out.println("Enter " + n + " num:");
+        for (int i = 0; i < n; i++) {
+            numb[i] = scanner.nextInt();
+        }
+        System.out.println("Reversed array:");
+        for (int i = n - 1; i >= 0; i--) {
+            System.out.print(num[i] + " ");
+        }
+        
+    }
+}
+
+
+task2:
+
+import java.util.Scanner;
+public class VowelConsonant {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String input = scanner.nextLine();
+        input = input.toLowerCase();
+         int vowels = 0, consonants = 0;
+        for (int i = 0; i < input.length(); i++) {
+            char ch = input.charAt(i);
+            if (Character.isLetter(ch)) {
+                if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+                    vowels++;
+                } else {
+                    consonants++;
+                }
+            }
+        }
+        System.out.println("Vowels: " + vowels);
+        System.out.println("Consonants: " + consonants);
+    }
+}

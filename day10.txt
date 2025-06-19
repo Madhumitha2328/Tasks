@@ -1,0 +1,129 @@
+
+foreign key syntax for add 
+=>alter table tablename add constrainname foreign key(cur column)references anotherTableName(column);
+ 
+not null is not allow duplicate
+mull is allow duplicate
+
+check constrain => verify the value
+default constrain
+
+joins
+
+joins are used to combine rows from two are more tables based on related columns
+
+types
+=innerjoin=>matching rows from both tables
+=outerjoin
+fullout=>all rows from both join
+rightout=>all matches rows from right plus only matches from left
+leftout=>all matches rows from left plus only matches from right
+=crossjoin=> all the combination
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| cat                |
+| information_schema |
+| kg                 |
+| kgcas              |
+| madhu              |
+| mysql              |
+| performance_schema |
+| sakila             |
+| stu                |
+| student            |
+| sys                |
+| world              |
++--------------------+
+12 rows in set (0.03 sec)
+
+mysql> use student;
+Database changed
+mysql> select * from student;
++-----------+--------+------------+
+| name      | rollno | department |
++-----------+--------+------------+
+| Madhu     |      1 | B.SC.IT    |
+| Dharshini |      2 | BCA        |
+| Susmii    |      3 | 5          |
+| Nila      |      4 | B.SC.CS    |
+| Kavi      |      5 | 3          |
+| Kavi      |      5 | 3          |
++-----------+--------+------------+
+6 rows in set (0.05 sec)
+
+mysql> delete from student where rollno=5;
+Query OK, 2 rows affected (0.04 sec)
+
+mysql> insert into student values(
+    -> 'kavi',5,'ECS');
+Query OK, 1 row affected (0.04 sec)
+
+mysql> select * from student;
++-----------+--------+------------+
+| name      | rollno | department |
++-----------+--------+------------+
+| Madhu     |      1 | B.SC.IT    |
+| Dharshini |      2 | BCA        |
+| Susmii    |      3 | 5          |
+| Nila      |      4 | B.SC.CS    |
+| kavi      |      5 | ECS        |
++-----------+--------+------------+
+5 rows in set (0.00 sec)
+
+mysql> alter table student add primary key (rollno);
+Query OK, 0 rows affected (0.10 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+mysql> select emp.empno,emp.ename,emp.job,dept.dname from emp
+    -> left join dept on emp.deptno=dept.deptno;
++-------+-------+----------+----------+
+| empno | ename | job      | dname    |
++-------+-------+----------+----------+
+|  7369 | SMITH | CLERK    | RESEARCH |
+|  7499 | ALLEN | SALESMAN | SALES    |
+|  7521 | WARD  | SALESMAN | SALES    |
+|  7566 | JONES | MANAGER  | RESEARCH |
++-------+-------+----------+----------+
+4 rows in set (0.00 sec)
+
+mysql> select emp.empno,emp.ename,emp.job,dept.dname from emp
+    -> right join dept on emp.deptno=dept.deptno
+    -> union
+    -> select emp.empno,emp.ename,emp.job,dept.dname from emp
+    -> left join dept on emp.deptno=dept.deptno;
++-------+-------+----------+------------+
+| empno | ename | job      | dname      |
++-------+-------+----------+------------+
+|  NULL | NULL  | NULL     | ACCOUNTING |
+|  7566 | JONES | MANAGER  | RESEARCH   |
+|  7369 | SMITH | CLERK    | RESEARCH   |
+|  7521 | WARD  | SALESMAN | SALES      |
+|  7499 | ALLEN | SALESMAN | SALES      |
+|  NULL | NULL  | NULL     | OPERATIONS |
++-------+-------+----------+------------+
+6 rows in set (0.00 sec)
+
+mysql> select emp.ename,dept.dname from emp
+    -> cross join dept;
++-------+------------+
+| ename | dname      |
++-------+------------+
+| JONES | ACCOUNTING |
+| WARD  | ACCOUNTING |
+| ALLEN | ACCOUNTING |
+| SMITH | ACCOUNTING |
+| JONES | RESEARCH   |
+| WARD  | RESEARCH   |
+| ALLEN | RESEARCH   |
+| SMITH | RESEARCH   |
+| JONES | SALES      |
+| WARD  | SALES      |
+| ALLEN | SALES      |
+| SMITH | SALES      |
+| JONES | OPERATIONS |
+| WARD  | OPERATIONS |
+| ALLEN | OPERATIONS |
+| SMITH | OPERATIONS |
++-------+------------+
+16 rows in set (0.00 sec)

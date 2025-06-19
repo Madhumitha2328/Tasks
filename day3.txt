@@ -1,0 +1,67 @@
+control flow satement
+
+=>conditional
+=>looping
+=for each=used to array
+=for = post and pre=increment/decrement,iteration,test condition
+=while = entry control
+=do while = exit control
+=>jump
+=goto
+=break=break statement
+=continue=end the statement
+
+
+string is an immutable    
+to store the value in string =>String name ="hello:";     
+
+1.class Main {
+    public static void main(String[] args) {
+        String str="hello";
+        String str1=str.toLowerCase();
+        System.out.println(str1);
+    }
+}
+
+2.class Main {
+    public static void main(String[] args) {
+        StringBuffer name = new StringBuffer();
+        name.append("hello");
+        System.out.println(name.reverse());
+        System.out.println(name);
+    }
+}             
+
+3.class Main {
+    public static void main(String[] args) {
+        StringBuffer name = new StringBuffer();
+        name.append("hello");
+        System.out.println (name.charAt(4));
+        System.out.println(name);
+    }
+}                 
+4.class Main {
+    public static void main(String[] args) {
+        StringBuffer name = new StringBuffer();
+        name.append("hello");
+        for(int i=0;i<=4;i++)
+        System.out.println (name.charAt(i));
+        
+        System.out.println(name);
+    }
+}
+
+5.class Main {
+    public static void main(String[] args) {
+        String name="windows";
+        int n= name.length();
+        int count=0;
+        for(int i=0;i<n;i++){
+        char ch=name.charAt(i);
+       if(name.charAt(i) == 'a'|| name.charAt(i) == 'e'|| name.charAt(i)== 'i'|| name.charAt(i) == 'o'|| name.charAt(i) == 'u'){
+           count++;
+       }
+        }
+        System.out.println(count);
+        }
+    }

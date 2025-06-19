@@ -1,0 +1,350 @@
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| cat                |
+| information_schema |
+| kg                 |
+| kgcas              |
+| madhu              |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+10 rows in set (0.00 sec)
+
+mysql> create database student;
+Query OK, 1 row affected (0.04 sec)
+
+mysql> use student;
+Database changed
+mysql> create table student(
+    -> name varchar(10),
+    -> rollno int,
+    -> subject varchar(10),
+    -> department varchar(20));
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> select * from student;
+Empty set (0.00 sec)
+
+mysql> insert into student values('Madhu',1,'Tamil','B.SC.IT');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> select * from student;
++-------+--------+---------+------------+
+| name  | rollno | subject | department |
++-------+--------+---------+------------+
+| Madhu |      1 | Tamil   | B.SC.IT    |
++-------+--------+---------+------------+
+1 row in set (0.00 sec)
+
+mysql> insert into student values('Dharshini',2,'English','BCA');
+Query OK, 1 row affected (0.04 sec)
+
+mysql> select * from student;
++-----------+--------+---------+------------+
+| name      | rollno | subject | department |
++-----------+--------+---------+------------+
+| Madhu     |      1 | Tamil   | B.SC.IT    |
+| Dharshini |      2 | English | BCA        |
++-----------+--------+---------+------------+
+2 rows in set (0.00 sec)
+
+mysql> insert into student values('Susmii',3,'Maths','B.SC.CT');
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert into student values('Nila',4,'Science','B.SC.CS');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into student values('Kavi',5,'Social','B.COM.PA');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> select * from student;
++-----------+--------+---------+------------+
+| name      | rollno | subject | department |
++-----------+--------+---------+------------+
+| Madhu     |      1 | Tamil   | B.SC.IT    |
+| Dharshini |      2 | English | BCA        |
+| Susmii    |      3 | Maths   | B.SC.CT    |
+| Nila      |      4 | Science | B.SC.CS    |
+| Kavi      |      5 | Social  | B.COM.PA   |
++-----------+--------+---------+------------+
+5 rows in set (0.00 sec)
+mysql> create table subject(
+    -> rollno int,
+    -> subject varchar(20));
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> desc subject;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| rollno  | int         | YES  |     | NULL    |       |
+| subject | varchar(20) | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+2 rows in set (0.05 sec)
+
+mysql> insert into subject (subject,rollno) values
+    -> ('c++',101),
+    -> ('c',102),
+    -> ('java',103),
+    -> ('java',103),
+    -> ('dsa',102),
+    -> ('java',101),
+    -> ('dfa',104),
+    -> ('c',104);
+Query OK, 8 rows affected (0.03 sec)
+Records: 8  Duplicates: 0  Warnings: 0
+
+mysql> alter table student drop subject;
+Query OK, 0 rows affected (0.07 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from student;
++-----------+--------+------------+
+| name      | rollno | department |
++-----------+--------+------------+
+| Madhu     |      1 | B.SC.IT    |
+| Dharshini |      2 | BCA        |
+| Susmii    |      3 | B.SC.CT    |
+| Nila      |      4 | B.SC.CS    |
+| Kavi      |      5 | B.COM.PA   |
+| Kavi      |      5 | B.COM.PA   |
++-----------+--------+------------+
+6 rows in set (0.00 sec)
+mysql> create table departmentdetails(
+    -> departmentid int,
+    -> departmentname varchar(200));
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> desc departmentdetails;
++----------------+--------------+------+-----+---------+-------+
+| Field          | Type         | Null | Key | Default | Extra |
++----------------+--------------+------+-----+---------+-------+
+| departmentid   | int          | YES  |     | NULL    |       |
+| departmentname | varchar(200) | YES  |     | NULL    |       |
++----------------+--------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+mysql> alter table departmentdetails add mentor varchar(20);
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc departmentdetails;
++----------------+--------------+------+-----+---------+-------+
+| Field          | Type         | Null | Key | Default | Extra |
++----------------+--------------+------+-----+---------+-------+
+| departmentid   | int          | YES  |     | NULL    |       |
+| departmentname | varchar(200) | YES  |     | NULL    |       |
+| mentor         | varchar(20)  | YES  |     | NULL    |       |
++----------------+--------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+mysql> insert into departmentdetails values(1,'information techonology','padmavathy'),
+    -> (2,'computer techonology','lanvanya'),
+    -> (3,'computer application','meatilda'),
+    -> (4,'computer science','selvi');
+Query OK, 4 rows affected (0.04 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> select * from  departmentdetails;
++--------------+-------------------------+------------+
+| departmentid | departmentname          | mentor     |
++--------------+-------------------------+------------+
+|            1 | information techonology | padmavathy |
+|            2 | computer techonology    | lanvanya   |
+|            3 | computer application    | meatilda   |
+|            4 | computer science        | selvi      |
++--------------+-------------------------+------------+
+4 rows in set (0.00 sec)
+update student set department=03 where rollno=3;
+Query OK, 1 row affected (0.04 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from student;
++-----------+--------+------------+
+| name      | rollno | department |
++-----------+--------+------------+
+| Madhu     |      1 | B.SC.IT    |
+| Dharshini |      2 | BCA        |
+| Susmii    |      3 | 3          |
+| Nila      |      4 | B.SC.CS    |
+| Kavi      |      5 | B.COM.PA   |
+| Kavi      |      5 | B.COM.PA   |
++-----------+--------+------------+
+6 rows in set (0.00 sec)
+
+mysql> update student set department=03 where rollno=5;
+Query OK, 2 rows affected (0.04 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> select * from student;
++-----------+--------+------------+
+| name      | rollno | department |
++-----------+--------+------------+
+| Madhu     |      1 | B.SC.IT    |
+| Dharshini |      2 | BCA        |
+| Susmii    |      3 | 3          |
+| Nila      |      4 | B.SC.CS    |
+| Kavi      |      5 | 3          |
+| Kavi      |      5 | 3          |
++-----------+--------+------------+
+6 rows in set (0.00 sec)
+
+mysql> update student set department=5 where rollno=3;
+Query OK, 1 row affected (0.04 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from student;
++-----------+--------+------------+
+| name      | rollno | department |
++-----------+--------+------------+
+| Madhu     |      1 | B.SC.IT    |
+| Dharshini |      2 | BCA        |
+| Susmii    |      3 | 5          |
+| Nila      |      4 | B.SC.CS    |
+| Kavi      |      5 | 3          |
+| Kavi      |      5 | 3          |
++-----------+--------+------------+
+6 rows in set (0.00 sec)
+
+mysql> select * from student where rollno=2;
++-----------+--------+------------+
+| name      | rollno | department |
++-----------+--------+------------+
+| Dharshini |      2 | BCA        |
++-----------+--------+------------+
+1 row in set (0.00 sec)
+
+mysql> select name from student where rollno=2;
++-----------+
+| name      |
++-----------+
+| Dharshini |
++-----------+
+1 row in set (0.00 sec)
+mysql> select * from student order by department;
++-----------+--------+------------+
+| name      | rollno | department |
++-----------+--------+------------+
+| Kavi      |      5 | 3          |
+| Kavi      |      5 | 3          |
+| Susmii    |      3 | 5          |
+| Nila      |      4 | B.SC.CS    |
+| Madhu     |      1 | B.SC.IT    |
+| Dharshini |      2 | BCA        |
++-----------+--------+------------+
+6 rows in set (0.04 sec)
+
+mysql> select * from student order by department desc;
++-----------+--------+------------+
+| name      | rollno | department |
++-----------+--------+------------+
+| Dharshini |      2 | BCA        |
+| Madhu     |      1 | B.SC.IT    |
+| Nila      |      4 | B.SC.CS    |
+| Susmii    |      3 | 5          |
+| Kavi      |      5 | 3          |
+| Kavi      |      5 | 3          |
++-----------+--------+------------+
+6 rows in set (0.00 sec)
+mysql> select * from student limit 2 offset 3;
++------+--------+------------+
+| name | rollno | department |
++------+--------+------------+
+| Nila |      4 | B.SC.CS    |
+| Kavi |      5 | 3          |
++------+--------+------------+
+2 rows in set (0.00 sec)
+mysql> select distinct name from student;
++-----------+
+| name      |
++-----------+
+| Madhu     |
+| Dharshini |
+| Susmii    |
+| Nila      |
+| Kavi      |
++-----------+
+mysql> select distinct * from student;
++-----------+--------+------------+
+| name      | rollno | department |
++-----------+--------+------------+
+| Madhu     |      1 | B.SC.IT    |
+| Dharshini |      2 | BCA        |
+| Susmii    |      3 | 5          |
+| Nila      |      4 | B.SC.CS    |
+| Kavi      |      5 | 3          |
++-----------+--------+------------+
+5 rows in set (0.00 sec)
+mysql> select * from student where department in (3,2);
++------+--------+------------+
+| name | rollno | department |
++------+--------+------------+
+| Kavi |      5 | 3          |
+| Kavi |      5 | 3          |
++------+--------+------------+
+2 rows in set, 3 warnings (0.02 sec)
+mysql> select * from student where department=3 or  department=2;
++------+--------+------------+
+| name | rollno | department |
++------+--------+------------+
+| Kavi |      5 | 3          |
+| Kavi |      5 | 3          |
++------+--------+------------+
+2 rows in set, 6 warnings (0.05 sec)
+mysql> select * from student where department not in (3,2);
++-----------+--------+------------+
+| name      | rollno | department |
++-----------+--------+------------+
+| Madhu     |      1 | B.SC.IT    |
+| Dharshini |      2 | BCA        |
+| Susmii    |      3 | 5          |
+| Nila      |      4 | B.SC.CS    |
++-----------+--------+------------+
+4 rows in set, 3 warnings (0.00 sec)
+mysql> select rollno as studentid,name as studentname from student;
++-----------+-------------+
+| studentid | studentname |
++-----------+-------------+
+|         1 | Madhu       |
+|         2 | Dharshini   |
+|         3 | Susmii      |
+|         4 | Nila        |
+|         5 | Kavi        |
+|         5 | Kavi        |
++-----------+-------------+
+6 rows in set (0.00 sec)
+mysql> select * from student where name like '%i';
++-----------+--------+------------+
+| name      | rollno | department |
++-----------+--------+------------+
+| Dharshini |      2 | BCA        |
+| Susmii    |      3 | 5          |
+| Kavi      |      5 | 3          |
+| Kavi      |      5 | 3          |
++-----------+--------+------------+
+4 rows in set (0.00 sec)
+
+mysql> select * from student where name like '%a%';
++-----------+--------+------------+
+| name      | rollno | department |
++-----------+--------+------------+
+| Madhu     |      1 | B.SC.IT    |
+| Dharshini |      2 | BCA        |
+| Nila      |      4 | B.SC.CS    |
+| Kavi      |      5 | 3          |
+| Kavi      |      5 | 3          |
++-----------+--------+------------+
+5 rows in set (0.00 sec)
+mysql> select * from student where name like '_a%';
++-------+--------+------------+
+| name  | rollno | department |
++-------+--------+------------+
+| Madhu |      1 | B.SC.IT    |
+| Kavi  |      5 | 3          |
+| Kavi  |      5 | 3          |
++-------+--------+------------+
+3 rows in set (0.00 sec)
+

@@ -1,0 +1,236 @@
+MYSql
+
+database:
+ organized collection of related information
+
+ 
+empno	name	salary
+
+7760	madhu	1000
+7869	dharsh	4000
+7654	mythu	6000
+
+
+forms of database
+1) physical form:
+	notebooks
+2) digital form:
+	data is stored digitally in computer as 0s and 1s
+3)logical form:
+	data is maintanied in a database using a software
+
+
+DBMS(database management system):
+	1)Data redundancy=unwanted duplication
+	2)dta inconsistency
+
+RDBMS(Relational databse management system):
+	=>data is stored in mutiple relation(tables)
+	=>tables is a base object in a databse
+
+
+
+MySQL
+	=>open source
+Oracle
+	=>Licensed software
+SQL server
+	=>microsft
+DB2
+	=>IBM
+PostgreSQL
+SQLite
+	=>local storage
+
+
+Environments
+1)CLI(command line interfaces)
+2)MySQL work bench
+3)other application
+
+
+SQL(Structured Query Language)
+	used to communicate with the database
+
+
+
+5 language 
+
+1)DDL(Data Definitio Language).
+	used to define an object
+         
+          	keywords
+	    a)create
+	   b)truncate
+	   c)alter
+	   d)rename
+	   e)drop
+
+2)DML(Data Manipulation Language)
+	used to manipulate the data
+
+	KEYWORDS
+	  a)insert
+	  b)update
+	  c)delete
+
+3)TCL(Transaction Control Language)
+	used to control the transactions
+ 	KEYWORDS
+	  a)comit
+	  b)roolback
+	  c)savepoint
+
+4)DCL(Data Control Language)
+	used to control the data access
+	KEYWORDS
+	   a)grant
+	  b)revoke
+
+5)DQL(Data Query Language)
+	used to read data
+	KEYWORDS
+	  a)select
+	
+
+
+
+to connect = mysql -u root -p
+
+how to list the database in server?
+	show databases;
+
+to create a database?
+	create database databasename; 
+
+to select a database?
+	use databasename;
+
+to create a table?
+	create table table_name(
+column1 datatype(size),
+column2 datatype(size),
+..
+..
+column_n datatype(size));
+
+int :integer
+varchar:variable length string
+char:fixed length string
+date:'yyy-mm-dd'
+
+how to insert record?
+insert into table_name values(value1,value2,....);
+insert into products values(2,'mouse',null,400);
+insert into products(prodname,price) values('keyboard',5000);
+
+how to read records
+select * from products;
+
+null:unknown values
+
+add a column
+	=>alter table
+	alter table table_name add column colname;
+datatype;
+alter table table products add column quantity int;
+
+to remove column
+	alter table table_name drop column columnname
+renmae column
+alter table table_name rename column old_name to new_name
+
+to increase the size or change the datatype 
+	alter table table_name modify columnname datatype(size);
+ 
+to modify the existing values?
+	update
+	update table_name set columnname='value' where condition;
+ 
+
+update products set date_of_purchase='2025-09-28' where prodname='mouse';
+update products set date_of _purchase='2025-09-28' ,prodid=3 where prodname='mouse';
+
+how to rename a atable?
+	rename table oldname to newname;
+
+remove a table
+	drop table tablename;
+
+list the name of the table
+	show tables;
+how to delete all rows
+	truncate table table_name;
+
+naming rules
+1.must start with an alphabet
+2.cannot contain space
+3.can contain numbers and special characters(_,$,#)
+4.must be unique 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
